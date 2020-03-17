@@ -3,30 +3,32 @@ import './App.css'
 
 import ticket      from './images/ticket_clock.svg'
 import information from './images/multiple_actions_information.svg'
+import opsTicket   from './images/noorders.png'
 
 import EventService from './service'
 import EventCard    from './Components/event-card'
 
 const App = () => {
 	const [eventList, setEventList] = useState([])
+	const [loading, setLoading] = useState(true)
+	const [hasError, setError] = useState(false)
 
 	useEffect(() => {
-		EventService.getEventList()
-			.then(({data}) => {
-				console.log(data.data)
-				setEventList(data.data)
-			})
+		fetchEventList()
 	}, [])
 
-	// id: "34538"
-	// name: "Amigos – A história continua"
-	// image: "https://site.ingressorapido.com.br/_services/site/ingressorapido/home/amigos-banner-site-copiar.png"
-	// link: "https://www.ingressorapido.com.br/event/34358-1/d/71011"
-	// local: "Estádio Municipal Parque do Sabiá"
-	// city: "Uberlândia/MG"
-	// date: "Segunda 29/06"
-	// status: "Adiado"
-	// description: "Aguarde contato da ingresso Rápido"
+	const fetchEventList = () => {
+		EventService.getEventList()
+			.then(({data}) => {
+				setEventList(data.data)
+			})
+			.catch(err => {
+				setError(true)
+			})
+			.finally(() => {
+				setLoading(false)
+			})
+	}
 
 	const renderEventCard = (event, index) => {
 		return <EventCard key={index}
@@ -38,6 +40,7 @@ const App = () => {
 						  imageURL={event.image}
 						  buyLink={event.link} />
 	}
+
 	return (
 		<>
 			<header>
@@ -53,12 +56,19 @@ const App = () => {
 			</header>
 			<main>
 				<h3>Todos status</h3>
-				<ul className="event_list">
-					{
-						eventList &&
-						eventList.map(renderEventCard)
-					}
-				</ul>
+				{
+					hasError
+					? <div className="reload-container">
+						<img src={opsTicket} alt="" />
+						<button className="reload" onClick={fetchEventList}>Recarregar</button>
+					</div>
+					: <ul className="event_list">
+						{
+							eventList &&
+							eventList.map(renderEventCard)
+						}
+					</ul>
+				}
 			</main>
 			<footer>
 				<div>
@@ -71,7 +81,8 @@ const App = () => {
 					Verifique esta página periodicamente para atualizações ou obtenha mais informações sobre o cancelamento e reprogramação de eventos ao vivo.
 				</div>
 			</footer>
-		</>)
+		</>
+	)
 }
 
 export default App

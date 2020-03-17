@@ -10,9 +10,10 @@
     width: 94px;
 }
 
+
 .event_card-container .image_container .image {
-    height: 80px;
-    width: 94px;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -37,6 +38,7 @@
 }
 
 .event_card-container .event_info .content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: 8px;
@@ -80,4 +82,14 @@
 .event_card-container .event_situation .info {
     padding: 6px 8px;
     color: rgba(0, 0, 0, .5);
+}
+
+@media ( min-width: 768px) {
+    .event_card-container .image_container {
+        height: 120px;
+        width: 141px;
+    }
+    .event_card-container .event_situation .status {
+        width: 141px;
+    }
 }

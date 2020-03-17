@@ -23,7 +23,7 @@ const EventCard = ({title, date, locale, status, info, imageURL, buyLink}) => {
 					<div className="header">
 						<span className="title">{title}</span>
 						{
-							buyLink &&
+							status.toLowerCase() !== 'cancelado' &&
 							<a className="link" href={buyLink}>COMPRAR</a>
 						}
 					</div>
