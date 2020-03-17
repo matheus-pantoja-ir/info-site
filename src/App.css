@@ -1,0 +1,51 @@
+header, main {
+    font-family: var(--font-default, sans-serif);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 16px 0;
+}
+
+.halo {
+    display: inline-block;
+    background: rgba(80, 103, 237, 0.14);
+    border: #5067ed 1px solid;
+    border-radius: 50%;
+    padding: 20px 17px 14px 17px;
+}
+
+header h1, header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+header .info_text {
+    margin: 16px 0;
+}
+
+main h3 {
+    margin-left: 8px;
+}
+
+main ul.event_list {
+    list-style: none;
+    padding: 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-default, sans-serif);
+}
+
+footer .information {
+    text-align: center;
+    margin-top: 18px;
+    padding: 0 16px;
+}

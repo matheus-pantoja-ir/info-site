@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#5067ed;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="prefix__ticket-clock">
+        <g id="prefix___Group_" data-name="&lt;Group&gt;">
+            <circle id="prefix__Elipse_27" cx="6" cy="6" r="6" class="prefix__cls-1" data-name="Elipse 27" transform="translate(11.5 11.5)"/>
+            <path id="prefix__Caminho_282" d="M19.5 17.5h-2v-3" class="prefix__cls-1" data-name="Caminho 282"/>
+        </g>
+        <path id="prefix__Caminho_283" d="M9 16.5H1.5a1 1 0 0 1-1-1v-3.031a.5.5 0 0 1 .437-.5 3.5 3.5 0 0 0 0-6.946.5.5 0 0 1-.437-.5V1.5a1 1 0 0 1 1-1h21a1 1 0 0 1 1 1v3.031a.5.5 0 0 1-.437.5 3.5 3.5 0 0 0-3.025 3.991" class="prefix__cls-1" data-name="Caminho 283"/>
+        <path id="prefix__Caminho_284" d="M16.25 3a.25.25 0 1 1-.25-.25.25.25 0 0 1 .25.25" class="prefix__cls-1" data-name="Caminho 284"/>
+        <path id="prefix__Caminho_285" d="M16.25 6a.25.25 0 1 1-.25-.25.25.25 0 0 1 .25.25" class="prefix__cls-1" data-name="Caminho 285"/>
+        <path id="prefix__Caminho_286" d="M16.25 9a.25.25 0 1 1-.25-.25.25.25 0 0 1 .25.25" class="prefix__cls-1" data-name="Caminho 286"/>
+    </g>
+</svg>
