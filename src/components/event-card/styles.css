@@ -1,7 +1,6 @@
 .event_card-container {
-    font-size: 14px;
+    font-size: 16px;
     border-bottom: #efeff4 2px solid;
-    padding-bottom: 16px;
     margin-bottom: 16px;
     font-family: var(--font-default, sans-serif);
 }
@@ -40,8 +39,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 8px;
     color: rgba(0, 0, 0, .5);
+    padding: 0 24px;
 }
 
 .event_info .content .content-header {
@@ -56,14 +55,20 @@
 
 .event_card-container .event_situation {
     display: flex;
+    padding: 16px 0;
 }
 
 .event_card-container .event_situation .status {
     display: flex;
     justify-content: center;
     width: 94px;
-    padding: 6px 0;
     font-weight: bold;
+}
+
+.event_card-container .event_situation .info {
+    flex: 1;
+    padding: 0 24px;
+    color: rgba(0, 0, 0, .5);
 }
 
 .event_situation .status.yellow {
@@ -78,13 +83,7 @@
     color: #26c240;
 }
 
-.event_card-container .event_situation .info {
-    flex: 1;
-    padding: 6px 8px;
-    color: rgba(0, 0, 0, .5);
-}
-
-@media ( min-width: 768px) {
+@media ( min-width: 880px) {
     .event_card-container .image_container {
         height: 120px;
         width: 141px;
@@ -94,6 +93,6 @@
     }
 }
 
-@media ( min-width: 375px) {
+@media ( min-width: 425px) {
 
 }
