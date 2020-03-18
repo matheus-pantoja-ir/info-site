@@ -62,18 +62,21 @@ const App = () => {
 					</div>
 				</div>
 			</header>
+
 			<main className="container">
 				<div className="header">
-					<div>
+					<div className="icon">
 						<div className="halo">
 							<img className="ticket" src={ticket} alt="" />
 						</div>
 					</div>
+
 					<div className="info_text">
 						<h1>Aviso</h1>
 						<h2>A lista abaixo mostra todos os eventos que tiveram alterações recentes no cronograma devido as precauções do COVID-19 </h2>
 					</div>
 				</div>
+
 				<div className="main">
 					<h3>Todos status</h3>
 					{
@@ -90,6 +93,7 @@ const App = () => {
 						</ul>
 					}
 				</div>
+
 				<div className="footer">
 					<div>
 						<div className="halo">
@@ -101,6 +105,7 @@ const App = () => {
 					</div>
 				</div>
 			</main>
+
 			<footer className="main_footer">
 				<div className="container">
 					<div className="content">
