@@ -14,5 +14,9 @@ npm run build
 ```
 O conteudo gerado vai estar na pasta `build`
 
-### build com path relativo
-caso queira hospedar em um `subpath` basta rodar o build passando a variavel `--public-url ./your_path_here`.
+### Build com path relativo
+Caso queira hospedar em um `subpath` diferente
+> por padrão o subpath é `/covid-19-eventos-afetados/`
+```shell script
+npm run build -- --public-url /your_path_here/
+```
