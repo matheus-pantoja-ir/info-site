@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build" : "parcel build index.html --out-dir build"
+    "build" : "parcel build index.html --public-url /covid-19-eventos-afetados/ --out-dir build"
   },
   "keywords": [],
   "author": "Matheus Pantoja (matheus-pantoja-ir)",

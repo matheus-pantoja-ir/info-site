@@ -1,11 +1,11 @@
-main .lds-ring {
+.lds-ring {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
 }
 
-main .lds-ring div {
+.lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
@@ -18,15 +18,15 @@ main .lds-ring div {
     border-color: #fff transparent transparent transparent;
 }
 
-main .lds-ring div:nth-child(1) {
+.lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
 }
 
-main .lds-ring div:nth-child(2) {
+.lds-ring div:nth-child(2) {
     animation-delay: -0.3s;
 }
 
-main .lds-ring div:nth-child(3) {
+.lds-ring div:nth-child(3) {
     animation-delay: -0.15s;
 }
 
@@ -39,11 +39,35 @@ main .lds-ring div:nth-child(3) {
     }
 }
 
-header, main {
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container .logo_container {
+    margin: 16px 8px 8px 8px;
+}
+
+header, main, footer {
     font-family: var(--font-default, sans-serif);
 }
 
-header {
+.ir-header {
+    min-height: 40px;
+    border-bottom: 1px solid #5369e5;;
+}
+
+.ir-header .container {
+    max-width: 1130px;
+}
+
+.header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,32 +84,33 @@ header {
     padding: 20px 17px 14px 17px;
 }
 
-header h1, header h2 {
-    font-size: 18px;
+.header h1, .header h2 {
+    font-size: 16px;
     margin: 0;
 }
 
-header .info_text {
-    margin: 16px 0;
+.header .info_text {
+    padding: 0 8px;
+    margin: 16px 0 0 0;
 }
 
-main {
+.main {
     display: flex;
     flex-direction: column;
 }
 
-main h3 {
+.main h3 {
     margin-left: 8px;
 }
 
-main .reload-container {
+.main .reload-container {
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: center;
 }
 
-main .reload-container img {
+.main .reload-container img {
     display: inline-flex;
     height: 210px;
     width: 237px;
@@ -101,12 +126,12 @@ main .reload-container img {
     background: #5067ed;
 }
 
-main ul.event_list {
+.main ul.event_list {
     list-style: none;
     padding: 0;
 }
 
-footer {
+.footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,8 +139,123 @@ footer {
     font-family: var(--font-default, sans-serif);
 }
 
-footer .information {
+.footer .information {
     text-align: center;
-    margin-top: 18px;
+    margin: 18px 0;
     padding: 0 16px;
+}
+
+.main_footer {
+    flex: 1;
+    bottom: 0;
+    background: #232222;
+    color: #ffffff;
+    padding-bottom: 40px;
+}
+
+footer.main_footer .container {
+    max-width: 1130px;
+}
+
+.main_footer .container .content {
+    font-size: 14px;
+    color: #a6a6a6;
+    font-weight: bold;
+    padding: 42px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.legal_content {
+    padding: 0 16px;
+    font-size: 12px;
+}
+
+.legal_content .corp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0 32px 0;
+}
+
+.content li a:visited,
+.content li a:link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.content li a:active,
+.content li a:hover,
+.content li a:focus {
+    color: #5067ed;
+}
+
+
+.container .content li {
+    color: #ffffff;
+    margin: 12px 0;
+    font-size: 12px;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+}
+
+.horizontal_list {
+    display: flex;
+}
+
+.horizontal_list.app_market li:first-child {
+    margin-right: 24px;
+}
+
+.horizontal_list.social_list li {
+     margin-right: 20px;
+}
+
+@media (max-width: 880px) {
+    .main_footer .container .content {
+        flex-wrap: wrap;
+    }
+    .main_footer .container .content {
+        padding: 42px 16px;
+    }
+
+    .container .content .app_market-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: flex-end;
+    }
+}
+
+@media (max-width: 425px) {
+    .main_footer .container .content {
+        flex-direction: column;
+        padding: 42px 16px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container .content li {
+        flex-direction: column;
+    }
+
+    .main_footer .container .content div {
+        margin-bottom: 16px;
+    }
+
+    .container .content .logo_container {
+        align-self: flex-start;
+    }
+
+    .container .content .app_market-container {
+        align-items: center;
+    }
+
+    .container .legal_content {
+        text-align: center;
+    }
+    .container .legal_content .corp {
+        flex-direction: column;
+    }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-const EventCard = ({title, date, locale, status, info, imageURL, buyLink}) => {
+const EventCard = ({title, date, locale, city, status, info, imageURL, buyLink}) => {
 
 	const statusEnum = {
 		'Adiado'   : 'yellow',
@@ -20,15 +20,16 @@ const EventCard = ({title, date, locale, status, info, imageURL, buyLink}) => {
 					}
 				</div>
 				<div className="content">
-					<div className="header">
+					<div className="content-header">
 						<span className="title">{title}</span>
 						{
-							status.toLowerCase() !== 'cancelado' &&
+							buyLink &&
 							<a className="link" href={buyLink}>COMPRAR</a>
 						}
 					</div>
 					<span>{date}</span>
 					<span>{locale}</span>
+					<span>{city}</span>
 				</div>
 
 			</div>
