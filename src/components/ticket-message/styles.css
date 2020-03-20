@@ -1,0 +1,25 @@
+.ticket_message.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.ticket_message.container span {
+    font-weight: bold;
+    padding: 0 8px;
+    text-align: center;
+}
+
+.ticket_message .image_container {
+    height: 210px;
+    width: 237px;
+    margin-bottom: 32px;
+}
+
+.ticket_message.container img {
+    height: 100%;
+    width: 100%;
+}

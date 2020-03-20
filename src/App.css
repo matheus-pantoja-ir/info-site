@@ -110,6 +110,7 @@ header, main, footer {
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
+    margin: 0 0 16px 0;
     font-size: 22px;
     color: #ffffff;
     background: #5067ed;

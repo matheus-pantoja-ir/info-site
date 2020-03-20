@@ -7,19 +7,28 @@ import {
 	ticket
 } from './images'
 
-import EventService from './service'
-import EventCard    from './components/event-card'
-import Loading      from './components/loading'
-import TextSearch   from './components/text-search'
-import AppFooter    from './components/app-footer'
-import AppHeader    from './components/app-header'
-import FlatList     from './components/flat-list'
+import EventService  from './service'
+import EventCard     from './components/event-card'
+import Loading       from './components/loading'
+import TextSearch    from './components/text-search'
+import AppFooter     from './components/app-footer'
+import AppHeader     from './components/app-header'
+import FlatList      from './components/flat-list'
+import TicketMessage from './components/ticket-message'
 
-const ReloadComponent = ({cb}) => (
+const ReloadComponent = ({refetch}) => (
 	<div className="reload-container">
 		<img src={opsTicket} alt="" />
-		<button className="reload" onClick={cb}>Recarregar</button>
+		<button className="reload" onClick={refetch}>Recarregar</button>
 	</div>
+)
+
+const NotFoundComponent = () => (
+	<TicketMessage>
+		<span>
+			Desculpe, não encontramos seu evento.
+		</span>
+	</TicketMessage>
 )
 
 const App = () => {
@@ -50,7 +59,7 @@ const App = () => {
 			{
 				text
 					.split(new RegExp(`(${search})`, 'ig'))
-					.map((word, index) =>{
+					.map((word, index) => {
 						return word.toUpperCase() === search.toUpperCase()
 							   ? !!search.trim()
 								 ? <mark key={index}>{word}</mark>
@@ -126,7 +135,8 @@ const App = () => {
 							filterFunction={filterEvent}
 							renderFunction={renderEventCard}
 							hasError={hasError}
-							ErrorComponent={<ReloadComponent c={fetchEventList} />}
+							NotFoundComponent={NotFoundComponent}
+							ErrorComponent={() => <ReloadComponent refetch={fetchEventList} />}
 						/>
 					</div>
 				}
