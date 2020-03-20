@@ -16,6 +16,7 @@ import IrLogo from './components/ir-logo'
 
 import EventService from './service'
 import EventCard    from './components/event-card'
+import Loading      from './components/loading'
 
 const App = () => {
 	const [eventList, setEventList] = useState([])
@@ -77,22 +78,26 @@ const App = () => {
 					</div>
 				</div>
 
-				<div className="main">
-					<h3>Todos status</h3>
-					{
-						hasError
-						? <div className="reload-container">
-							<img src={opsTicket} alt="" />
-							<button className="reload" onClick={fetchEventList}>Recarregar</button>
-						</div>
-						: <ul className="event_list">
-							{
-								eventList &&
-								eventList.map(renderEventCard)
-							}
-						</ul>
-					}
-				</div>
+				{
+					loading
+					? <Loading/>
+					: <div className="main">
+						<h3>Todos status</h3>
+						{
+							hasError
+							? <div className="reload-container">
+								<img src={opsTicket} alt="" />
+								<button className="reload" onClick={fetchEventList}>Recarregar</button>
+							</div>
+							: <ul className="event_list">
+								{
+									eventList &&
+									eventList.map(renderEventCard)
+								}
+							</ul>
+						}
+					</div>
+				}
 
 				<div className="footer">
 					<div>
