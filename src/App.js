@@ -45,20 +45,54 @@ const App = () => {
 			})
 	}
 
+	const highlightText = (text, search) => (
+		<>
+			{
+				text
+					.split(new RegExp(`(${search})`, 'ig'))
+					.map((word, index) =>{
+						return word.toUpperCase() === search.toUpperCase()
+							   ? !!search.trim()
+								 ? <mark key={index}>{word}</mark>
+								 : word
+							   : word
+					})
+			}
+		</>
+	)
+
 	const renderEventCard = (event, index) => {
 		return <EventCard key={index}
-						  title={event.name}
+						  title={highlightText(event.name, searchValue)}
 						  date={event.date}
-						  locale={event.local}
-						  city={event.city}
+						  locale={highlightText(event.local, searchValue)}
+						  city={highlightText(event.city, searchValue)}
 						  status={event.status}
 						  info={event.description}
 						  imageURL={event.image}
 						  buyLink={event.link} />
 	}
 
+	const handleSearch = ({target}) => {
+		setSearchValue(target.value)
+	}
+
+	const clearSearch = () => {
+		setSearchValue('')
+	}
+
+	const filterEvent = ({name, city, local, status}) => {
+		return (
+			name.toUpperCase().includes(searchValue.toUpperCase()) ||
+			city.toUpperCase().includes(searchValue.toUpperCase()) ||
+			local.toUpperCase().includes(searchValue.toUpperCase()) ||
+			status.toUpperCase().includes(searchValue.toUpperCase())
+		)
+	}
+
 	return (
 		<div className="app">
+
 			<AppHeader />
 
 			<main className="container">
@@ -76,9 +110,8 @@ const App = () => {
 
 					<div className="text_search">
 						<TextSearch value={searchValue}
-									onchange={({target}) => {
-										setSearchValue(target.value)
-									}}
+									onchange={handleSearch}
+									handleClear={clearSearch}
 									placeholder="Nome do evento, cidade, lugar..." />
 					</div>
 				</div>
@@ -90,6 +123,7 @@ const App = () => {
 						<h3>Todos status</h3>
 						<FlatList
 							data={eventList}
+							filterFunction={filterEvent}
 							renderFunction={renderEventCard}
 							hasError={hasError}
 							ErrorComponent={<ReloadComponent c={fetchEventList} />}

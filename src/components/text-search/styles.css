@@ -6,6 +6,7 @@
 }
 
 .text_search-container .input {
+    outline: none;
     background: none;
     font-size: 18px;
     padding: 0 8px;

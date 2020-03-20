@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-const TextSearch = ({type, value, placeholder, onchange}, rest) => {
+const TextSearch = ({type, value, placeholder, onchange, handleClear}, rest) => {
 	return (
 		<div className="text_search-container">
 			<input className="input"
@@ -13,7 +13,7 @@ const TextSearch = ({type, value, placeholder, onchange}, rest) => {
 
 			{
 				value &&
-				<button className="clear_button">
+				<button className="clear_button" onClick={handleClear}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						style={{width: 16}}
