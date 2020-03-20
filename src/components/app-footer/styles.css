@@ -1,0 +1,68 @@
+
+.main_footer {
+    flex: 1;
+    bottom: 0;
+    background: #232222;
+    color: #ffffff;
+    padding-bottom: 40px;
+}
+
+footer.main_footer .container {
+    max-width: 1130px;
+}
+
+.main_footer .container .content {
+    font-size: 14px;
+    color: #a6a6a6;
+    font-weight: bold;
+    padding: 42px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.legal_content {
+    padding: 0 16px;
+    font-size: 12px;
+}
+
+.legal_content .corp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0 32px 0;
+}
+
+
+.content li a:visited,
+.content li a:link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.content li a:active,
+.content li a:hover,
+.content li a:focus {
+    color: #5067ed;
+}
+
+
+.container .content li {
+    color: #ffffff;
+    margin: 12px 0;
+    font-size: 12px;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+}
+
+.horizontal_list {
+    display: flex;
+}
+
+.horizontal_list.app_market li:first-child {
+    margin-right: 24px;
+}
+
+.horizontal_list.social_list li {
+    margin-right: 20px;
+}

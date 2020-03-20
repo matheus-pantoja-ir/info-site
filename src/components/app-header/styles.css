@@ -1,0 +1,9 @@
+
+.ir-header {
+    min-height: 40px;
+    border-bottom: 1px solid #5369e5;;
+}
+
+.ir-header .container {
+    max-width: 1130px;
+}
