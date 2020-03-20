@@ -17,11 +17,13 @@ import IrLogo from './components/ir-logo'
 import EventService from './service'
 import EventCard    from './components/event-card'
 import Loading      from './components/loading'
+import TextSearch   from './components/text-search'
 
 const App = () => {
 	const [eventList, setEventList] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [hasError, setError] = useState(false)
+	const [searchValue, setSearchValue] = useState('')
 
 	useEffect(() => {
 		fetchEventList()
@@ -75,6 +77,12 @@ const App = () => {
 					<div className="info_text">
 						<h1>Aviso</h1>
 						<h2>A lista abaixo mostra todos os eventos que tiveram alterações recentes no cronograma devido as precauções do COVID-19 </h2>
+					</div>
+
+					<div className="text_search">
+						<TextSearch value={searchValue}
+									onchange={({target})=>{setSearchValue(target.value)}}
+									placeholder='Nome do evento, cidade, lugar...'/>
 					</div>
 				</div>
 

@@ -1,0 +1,19 @@
+.text_search-container {
+    display: flex;
+    border: #707070 1px solid;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.text_search-container .input {
+    background: none;
+    font-size: 18px;
+    padding: 0 8px;
+    flex: 1;
+    border: none;
+}
+
+.text_search-container .clear_button {
+    background: none;
+    border: none;
+}

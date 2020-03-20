@@ -83,6 +83,10 @@ header, main, footer {
     margin: 16px 0 0 0;
 }
 
+.header .text_search {
+    padding: 16px 0;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -215,6 +219,10 @@ footer.main_footer .container {
         flex-direction: column;
         flex: 1;
         align-items: flex-end;
+    }
+
+    .header .text_search {
+        padding: 16px;
     }
 }
 
