@@ -58,7 +58,18 @@ header, main, footer {
     padding: 20px 17px 14px 17px;
 }
 
-.header h1{
+.header .more_link:link,
+.header .more_link:visited,
+.header .more_link:hover,
+.header .more_link:active {
+    font-size: 16px;
+    margin-top: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    align-self: center;
+}
+
+.header h1 {
     display: none;
 }
 
@@ -88,7 +99,18 @@ header, main, footer {
     flex-direction: column;
 }
 
-.main h3 {
+.main .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main .list-header .last_modified {
+    font-size: 14px;
+    color: rgba(0, 0, 0, .5);
+}
+
+.main .list-header h3 {
     margin: 0 0 0 8px;
 }
 
@@ -134,6 +156,7 @@ header, main, footer {
     .main_footer .container .content {
         flex-wrap: wrap;
     }
+
     .main_footer .container .content {
         padding: 42px 16px;
     }
@@ -156,7 +179,8 @@ header, main, footer {
         flex-direction: column;
         text-align: center;
     }
-    .header h1{
+
+    .header h1 {
         display: block;
     }
 
@@ -168,6 +192,20 @@ header, main, footer {
 
     .header h2::before {
         content: '';
+    }
+
+    .main .list-header {
+        justify-content: normal;
+    }
+
+    .main .list-header .last_modified {
+        flex: 1;
+        font-size: 12px;
+        margin-left: 24px;
+    }
+
+    .main .list-header h3 {
+        font-size: 14px;
     }
 
 

@@ -36,6 +36,7 @@ const App = () => {
 	const [loading, setLoading] = useState(true)
 	const [hasError, setError] = useState(false)
 	const [searchValue, setSearchValue] = useState('')
+	const [lastModified, setLastModified] = useState(undefined)
 
 	useEffect(() => {
 		fetchEventList()
@@ -44,6 +45,7 @@ const App = () => {
 	const fetchEventList = () => {
 		EventService.getEventList()
 			.then(({data}) => {
+				setLastModified(data.last_modified)
 				setEventList(data.data)
 			})
 			.catch(err => {
@@ -99,6 +101,21 @@ const App = () => {
 		)
 	}
 
+	const renderLastUpdate = (lastUpdate) => {
+		if (!lastUpdate) return
+
+		const dateLastUpdate = new Date(lastUpdate)
+
+		const options = {
+			day   : 'numeric',
+			month : 'numeric',
+			year  : 'numeric',
+			hour  : 'numeric',
+			minute: 'numeric'
+		}
+		return `Última atualização: ${new Intl.DateTimeFormat('pt-BR', options).format(dateLastUpdate)}`
+	}
+
 	return (
 		<div className="app">
 
@@ -117,6 +134,8 @@ const App = () => {
 						<h2>A lista abaixo mostra todos os eventos que tiveram alterações recentes no cronograma devido as precauções do COVID-19 </h2>
 					</div>
 
+					<a className="more_link" href="#info">Saiba mais</a>
+
 					<div className="text_search">
 						<TextSearch value={searchValue}
 									onchange={handleSearch}
@@ -129,7 +148,10 @@ const App = () => {
 					loading
 					? <Loading />
 					: <div className="main">
-						<h3>Todos status</h3>
+						<div className="list-header">
+							<h3>Todos status</h3>
+							<span className="last_modified">{renderLastUpdate(lastModified)}</span>
+						</div>
 						<FlatList
 							data={eventList}
 							filterFunction={filterEvent}
@@ -147,7 +169,7 @@ const App = () => {
 							<img src={information} alt="" />
 						</div>
 					</div>
-					<div className="information">
+					<div className="information" id="info">
 						Devido à natureza em rápida evolução dessa situação e ao volume de eventos afetados, estamos enfrentando atrasos nas atualizações de status de eventos. Tenha certeza de que nossa equipe está trabalhando com os produtores dos eventos para publicar as atualizações o mais rápido possível. Verifique esta página periodicamente para atualizações.
 					</div>
 				</div>
