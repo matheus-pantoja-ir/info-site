@@ -28,12 +28,10 @@ const FlatList = ({
 			{
 				hasError
 				? <ErrorComponent />
-				: (
-					(handleEmpty)
+				: ((handleEmpty)
 					(data
 						.filter(filterFunction)
-						.map(renderFunction))
-				)
+						.map(renderFunction)))
 			}
 		</>
 	)
